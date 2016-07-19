@@ -12,6 +12,13 @@ export class Results {
 	activate() {
 		this.resultsService.getResults()
 			.then( results => this.results = results )
+			.then( () => {
+				this.results = this.results.map(res => {
+					res.timeMinutes = ResultsService.secToMin(parseFloat(res.time));
+					return res;
+				});		
+			})
 			.catch( err => alert(err));
+	
 	}
 }
