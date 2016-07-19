@@ -1,0 +1,28 @@
+<template>
+	<require from="bootstrap/css/bootstrap.css"></require>
+  <require from="font-awesome/css/font-awesome.css"></require>
+
+	<header class='main-header'>
+		<i class="fa fa-bars" 
+		aria-hidden="true" 
+		click.trigger="toggleMenu()"></i>
+		<span><a href="#">Runni</a></span>
+	</header>
+
+	<nav class="side-nav ${showMenu ? 'show-menu' : ''}" >
+		<ul>
+			<li>
+				<a href="#"><i class="fa fa-times" aria-hidden="true" click.trigger="toggleMenu()"></i> Run better with Runnni</a>
+			</li>
+			<li repeat.for="row of router.navigation" >
+				<a href.bind="row.href">${row.title}</a>
+			</li>
+		</ul>
+		<p>Created by Emil Pausz</p>
+	</nav>
+
+	<main>
+		<router-view></router-view>
+	</main>
+	
+</template>

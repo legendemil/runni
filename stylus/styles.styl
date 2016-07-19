@@ -1,0 +1,55 @@
+blue = #1565c0
+blue1 = #1976d2 
+
+*
+	font-family: 'Roboto', sans-serif;
+
+body, html
+	height 100%
+	
+a, a:hover, a:active, a:visited
+	text-decoration none
+	
+@media screen and (max-width: 400px) 
+	main 
+		padding 2rem
+		text-align center
+	.main-header 
+		padding 1rem
+		background blue
+		a, i
+			color white
+		a			
+			float right
+	.side-nav
+		position fixed
+		top 0
+		left 0
+		height 100%
+		background white
+		transform translateX(-102%)
+		transition-duration 1s
+		width 80%
+		box-shadow 10px 0px 12px -8px black
+		&.show-menu
+			transform translateX(0%)
+		ul
+			list-style-type none
+			list-style-position outside
+			padding 0
+			li:nth-child(1) a
+				color white
+				background blue1
+			li 
+				a
+					color blue1
+					display block
+					width 100%
+					padding .5rem
+					font-size 2rem
+					text-align center
+					&:hover					
+						background blue1
+						color white
+					&:active, &:hover, &:visited		
+						text-decoration none	
