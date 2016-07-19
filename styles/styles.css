@@ -67,4 +67,17 @@ a:visited {
   .side-nav ul li a:visited {
     text-decoration: none;
   }
+  .main-screen h1 {
+    font-size: 4rem;
+  }
+  .main-screen h2 {
+    font-size: 3rem;
+  }
+  .main-screen button {
+    border: 1px solid #1976d2;
+    outline: none;
+    padding: 1rem;
+    font-size: 2rem;
+    background: #fff;
+  }
 }
