@@ -6,11 +6,13 @@ blue1 = #1976d2
 
 body, html
 	height 100%
+	width 100%
+	box-sizing border-box !important
 	
 a, a:hover, a:active, a:visited
 	text-decoration none
 	
-@media screen and (max-width: 400px) 
+@media screen and (max-width: 650px) 
 	main 
 		padding 2rem
 		text-align center
@@ -64,5 +66,19 @@ a, a:hover, a:active, a:visited
 			padding 1rem
 			font-size 2rem
 			background white
-			
-					
+	.results
+		.table-results	
+			width 90%
+			margin 0 auto
+			font-size 1.5rem
+			.table-row:nth-child(1)
+				border-bottom 2px solid gray
+				text-transform uppercase
+				font-weight 700
+			.table-row			
+				border-bottom 1px solid gray
+				display flex
+				justify-content center	
+				div
+					width 33%
+					padding 1.4rem

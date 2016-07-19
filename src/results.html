@@ -1,3 +1,19 @@
 <template>
-	results
+	<section class='results'>
+		<div class='table-results'>
+
+			<div class='table-row'>
+				<div>Date</div>
+				<div>Time</div>
+				<div>Distance</div>
+			</div>
+			
+			<div class="table-row" repeat.for="result of results">
+				<div>${result.date}</div>
+				<div>${result.time}</div>
+				<div>${result.distance}km</div>
+			</div>
+
+		</div>
+	</section>
 </template>
