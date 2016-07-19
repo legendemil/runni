@@ -45,7 +45,7 @@ export class Visualize {
 			data: {
 				labels: this.chartData.label,
 				datasets: [{
-					label: 'Your runs results',
+					label: 'Your runs results(km/min)',
 					data: this.chartData.data,
 					fill: true,
 					lineTension: 0.1,

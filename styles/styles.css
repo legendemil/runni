@@ -51,6 +51,7 @@ a:visited {
   .side-nav ul li:nth-child(1) a {
     color: #fff;
     background: #1976d2;
+    padding: 1.2rem;
   }
   .side-nav ul li a {
     color: #1976d2;
@@ -68,6 +69,13 @@ a:visited {
   .side-nav ul li a:hover,
   .side-nav ul li a:visited {
     text-decoration: none;
+  }
+  .side-nav .author {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
   }
   .main-screen h1 {
     font-size: 4rem;
