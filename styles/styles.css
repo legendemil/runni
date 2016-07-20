@@ -2,7 +2,7 @@
   font-family: 'Roboto', sans-serif;
 }
 body {
-  background-image: linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.7)), url("../img/bg1.svg");
+  background-image: linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)), url("../img/bg1.svg");
   background-size: cover;
 }
 body,
