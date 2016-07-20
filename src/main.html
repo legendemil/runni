@@ -1,8 +1,9 @@
 <template>
 	<section class='main-screen'>
 			<h1 class='distance'>0m</h1>
-			<h2 class='time'>00:00:00</h2>
+			<h2 class='time'>${showedTime}</h2>
 
-			<button class='start-btn'>Go</button>
+			<button class='start-btn' click.trigger="toggleTimer()">${isStart ? 'Stop' : 'Go!'}</button>
+			<button class='reset-btn' click.trigger='resetTimer()'>Reset</button>
 		</section>
 </template>
