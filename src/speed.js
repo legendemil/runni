@@ -1,28 +1,11 @@
+import {inject} from 'aurelia-framework';
 import Chart from '/node_modules/chart.js/dist/Chart.bundle.min.js';
 import { ResultsService } from './services/results.service.js';
-import {inject} from 'aurelia-framework';
-
-class VisualizeUtil {
-	static calcuateSpeed(res) {
-		let h = res.time / 60 / 60;
-		return (res.distance / h).toFixed(2);
-	}
-
-	static makeSpeedArr(results) {
-		return results.map( res => {
-			let speed = VisualizeUtil.calcuateSpeed(res);
-			return parseFloat(speed);
-		});
-	}
-
-	static getDateLabels(results) {
-		return results.map( res => res.date );
-	}
-}
+import {RunUtil} from './utils/run.util.js';
 
 
 @inject(ResultsService)
-export class Visualize {
+export class Speed {
 	results = null;
 	chartData = null;
 	constructor(resultsService) {
@@ -33,8 +16,8 @@ export class Visualize {
 		this.resultsService.getResults()
 			.then( res => this.results = res )
 			.then( res => this.chartData = {
-				label: VisualizeUtil.getDateLabels(res),
-				data: VisualizeUtil.makeSpeedArr(res)
+				label: RunUtil.getDateLabels(res),
+				data: RunUtil.makeSpeedArr(res)
 			});
 	}
 
@@ -45,7 +28,7 @@ export class Visualize {
 			data: {
 				labels: this.chartData.label,
 				datasets: [{
-					label: 'Your runs results(km/min)',
+					label: 'km/h',
 					data: this.chartData.data,
 					fill: true,
 					lineTension: 0.1,
