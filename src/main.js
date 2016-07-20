@@ -1,8 +1,11 @@
+import { GeoUtil } from './utils/geo.util.js';
+
 export class Main {
 	isStart = false;
 	currentTime = 0;
 	showedTime = null;
 	timer = null;
+	isWatching = false;
 
 	pad(num) {
 		return num < 10 ? '0' + num : num;
@@ -25,6 +28,11 @@ export class Main {
 
 	startTimer() {
 		console.log('started');
+		if(!this.isWatching) {
+			GeoUtil.startWatching();
+			this.isWatching = !this.isWatching;
+		}
+		console.log(GeoUtil.getDistance());
 		this.timer = setTimeout(() => {
 			this.currentTime++;
 			this.formatTime();
@@ -34,14 +42,18 @@ export class Main {
 	}
 
 	stopTimer() {
+		this.isWatching = !this.isWatching;
 		this.isStart = false;
 		console.log('stopped');
 		clearTimeout(this.timer);
+		GeoUtil.stopWatching();
 	}
 
 	resetTimer() {
+		this.isWatching = !this.isWatching;
 		console.log('reset imer');
 		clearTimeout(this.timer);
+		GeoUtil.stopWatching();
 		this.currentTime = 0;
 		this.isStart = false;
 		this.formatTime();
