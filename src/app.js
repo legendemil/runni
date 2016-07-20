@@ -11,7 +11,7 @@ export class App {
 	     { route: 'rate', name: 'rate', moduleId: './rate', nav: true, title: 'Your rate'}
 	    ]);
 
-	this.router = router;
+		this.router = router;
 	}
 	
 	toggleMenu() {

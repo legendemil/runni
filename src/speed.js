@@ -23,7 +23,6 @@ export class Speed {
 	}
 
 	attached() {
-		console.log(this.chartData)
 		let ctx = this.myChart.getContext("2d");
 		let chart = ChartUtil.createChart(ctx, this.chartData);
 	}

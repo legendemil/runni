@@ -1,8 +1,14 @@
-blue = #1565c0
-blue1 = #1976d2 
+blue = #90caf9
+blue1 = #bbdefb
+
+grey = #bdbdbd
 
 *
 	font-family: 'Roboto', sans-serif;
+
+body
+	background-image linear-gradient(rgba(#fff, 0.5), rgba(#fff, 0.7)) ,url("../img/bg1.svg")
+	background-size cover
 
 body, html
 	height 100%
@@ -10,7 +16,7 @@ body, html
 	box-sizing border-box !important
 	
 a, a:hover, a:active, a:visited
-	text-decoration none
+	text-decoration none !important
 	
 @media screen and (max-width: 650px) 
 	main 
@@ -23,6 +29,8 @@ a, a:hover, a:active, a:visited
 			color white
 		a			
 			float right
+			text-transform uppercase
+			font-weight 700
 	.side-nav
 		position fixed
 		top 0
@@ -35,33 +43,39 @@ a, a:hover, a:active, a:visited
 		box-shadow 10px 0px 12px -8px black
 		&.show-menu
 			transform translateX(0%)
+		h2 
+			margin 0
+			font-size 1.5rem
+			text-align center
+			a 
+				display inline-block
+				width 100%
+				color white
+				background blue
+				padding 1.7rem
+				i 
+					margin-right 1rem
 		ul
 			list-style-type none
 			list-style-position outside
-			padding 0
-			li:nth-child(1) a
-				color white
-				background blue1
-				padding 1.2rem
+			padding 0 2rem		
 			li 
+				border-bottom 1px solid grey
 				a
-					color blue1
+					color grey
 					display block
 					width 100%
-					padding .5rem
+					padding 1rem 0
 					font-size 2rem
-					text-align center
-					&:hover					
-						background blue1
-						color white
-					&:active, &:hover, &:visited		
-						text-decoration none	
+					font-weight 100
+					text-align center		
 		.author
 			position absolute
 			bottom 0
 			left 0
 			width 100%
 			text-align center
+			color grey
 	.main-screen
 		h1
 			font-size 4rem

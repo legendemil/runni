@@ -1,4 +1,4 @@
-import {inject} from 'aurelia-framework';
+import { inject } from 'aurelia-framework';
 import { ChartUtil } from './utils/chart.util.js'
 import { ResultsService } from './services/results.service.js';
 import { RunUtil } from './utils/run.util.js';
@@ -23,7 +23,6 @@ export class Rate {
 	}
 
 	attached() {
-		console.log(this.chartData)
 		let ctx = this.myChart.getContext("2d");
 		let chart = ChartUtil.createChart(ctx, this.chartData);
 	}

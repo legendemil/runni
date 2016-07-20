@@ -10,12 +10,14 @@
 	</header>
 
 	<nav class="side-nav ${showMenu ? 'show-menu' : ''}" >
+		<h2>
+			<a href="#"><i class="fa fa-times" aria-hidden="true" click.trigger="toggleMenu()"></i> Run better with Runnni</a>
+		</h2>
 		<ul>
-			<li>
-				<a href="#"><i class="fa fa-times" aria-hidden="true" click.trigger="toggleMenu()"></i> Run better with Runnni</a>
-			</li>
 			<li repeat.for="row of router.navigation" >
-				<a href.bind="row.href">${row.title}</a>
+				<a href.bind="row.href">
+					${row.title}
+				</a>
 			</li>
 		</ul>
 		<p class='author'>Created by Emil Pausz</p>
