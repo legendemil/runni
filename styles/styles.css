@@ -109,13 +109,10 @@ a:visited {
     outline: none;
     border: none;
     border-radius: 100%;
-    font-size: 2rem;
+    font-size: 1.5rem;
     background: #fff;
     width: 60px;
     height: 60px;
-  }
-  .main-screen .reset-btn {
-    font-size: 1.5rem;
   }
   .results .table-results {
     color: #616161;
