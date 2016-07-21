@@ -2,7 +2,7 @@
   "github:github/fetch@0.10.1": {},
   "github:systemjs/plugin-css@0.1.20": {},
   "github:twbs/bootstrap@3.3.6": {
-    "jquery": "github:components/jquery"
+    "jquery": "jspm:jquery@2"
   },
   "npm:aurelia-history@1.0.0-beta.1.1.1": {},
   "npm:font-awesome@4.5.0": {
