@@ -5,45 +5,41 @@ export class GeoUtil {
 	pointB = null;
 	distance = 0;
 	watchId = null;
+	isWatching = false;
 
-	static success(pos) {
-		console.log('successsssss');
+	success(pos) {
 		let coords = pos.coords;
 		let dist = 0;
-		if(!GeoUtil.pointA) {
-			GeoUtil.pointA = coords;
-			console.log('A', GeoUtil.pointA);
+		if(!this.pointA) {
+			this.pointA = coords;
+			console.log('A', this.pointA);
 			return;
 		} 
-		if(GeoUtil.pointA) {
-			GeoUtil.pointB = coords;
-			dist = Distances.getDistance(GeoUtil.pointA, GeoUtil.pointB);
+		this.pointB = coords;
+		console.log('B', this.pointB);
+		console.log('A', this.pointA);
+		dist = Distances.getDistance(this.pointA, this.pointB);
 
-			[GeoUtil.pointA, GeoUtil.pointB] = [GeoUtil.pointB, null];
-			console.log('dis: ' + dist)
-			if(!isNaN(dist))
-				GeoUtil.distance += dist;
-		}
+		this.pointA = this.pointB;
+		console.log('distance: ' + dist, this.distance)
+		if(!isNaN(dist))
+			this.distance += dist;
+		
 	}	
 
 	error(err){
 		alert('Error: ' + err.message);
 	}
 
-	static startWatching() {
+	getNewPosition() {
 		let options = {
 			enableHighAccuracy: true,
-  			timeout: 5000,
   			maximumAge: 0
 		};
-		this.id = navigator.geolocation.watchPosition(this.success, this.error, options);
+		navigator.geolocation.getCurrentPosition(this.success.bind(this), this.error.bind(this), options);
 	}
 
-	static stopWatching() {
-		navigator.geolocation.clearWatch(this.id);
-	}
-
-	static getDistance() {
-		return 'sadsa: ' + this.distance;
+	getDistance() {
+	 	return Number(this.distance * 1000).toFixed(0);
 	}
 }

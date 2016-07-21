@@ -1,6 +1,6 @@
 <template>
 	<section class='main-screen'>
-			<h1 class='distance'>0m</h1>
+			<h1 class='distance'>${showDistance()}</h1>
 			<h2 class='time'>${showedTime}</h2>
 
 			<button class='start-btn' click.trigger="toggleTimer()">${isStart ? 'Stop' : 'Go!'}</button>

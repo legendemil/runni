@@ -5,7 +5,13 @@ export class Main {
 	currentTime = 0;
 	showedTime = null;
 	timer = null;
-	isWatching = false;
+	distance = 0;
+	geoWatcher = null;
+
+	showDistance() {
+		let output = this.distance >= 1000 ? (this.distance / 1000).toFixed(3) + 'km' : this.distance + 'm';
+		return output;
+	}
 
 	pad(num) {
 		return num < 10 ? '0' + num : num;
@@ -28,11 +34,13 @@ export class Main {
 
 	startTimer() {
 		console.log('started');
-		if(!this.isWatching) {
-			GeoUtil.startWatching();
-			this.isWatching = !this.isWatching;
-		}
-		console.log(GeoUtil.getDistance());
+		if(!this.geoWatcher) 
+			this.geoWatcher = new GeoUtil();
+		if(!this.geoWatcher.isWatching)
+			this.geoWatcher.isWatching = true;
+
+		this.geoWatcher.getNewPosition();
+		this.distance = this.geoWatcher.getDistance();
 		this.timer = setTimeout(() => {
 			this.currentTime++;
 			this.formatTime();
@@ -42,19 +50,19 @@ export class Main {
 	}
 
 	stopTimer() {
-		this.isWatching = !this.isWatching;
-		this.isStart = false;
 		console.log('stopped');
 		clearTimeout(this.timer);
-		GeoUtil.stopWatching();
+		this.geoWatcher.isWatching = false;
+		this.isStart = false;
+		this.distance = 0;	
 	}
 
 	resetTimer() {
-		this.isWatching = !this.isWatching;
-		console.log('reset imer');
+		console.log('reset timer');
 		clearTimeout(this.timer);
-		GeoUtil.stopWatching();
+		this.geoWatcher.isWatching = false;		
 		this.currentTime = 0;
+		this.distance = 0;
 		this.isStart = false;
 		this.formatTime();
 	}
