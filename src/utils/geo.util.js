@@ -18,7 +18,7 @@ export class GeoUtil {
 		this.pointB = coords;
 		console.log('B', this.pointB);
 		console.log('A', this.pointA);
-		dist = Distances.getDistance(this.pointA, this.pointB);
+		dist = Distances.getDistance(this.pointA, this.pointB,10);
 
 		this.pointA = this.pointB;
 		console.log('distance: ' + dist, this.distance)

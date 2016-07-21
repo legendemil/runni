@@ -6,11 +6,13 @@ export class Main {
 	showedTime = null;
 	timer = null;
 	distance = 0;
+	showedDistance = null;
 	geoWatcher = null;
 
-	showDistance() {
-		let output = this.distance >= 1000 ? (this.distance / 1000).toFixed(3) + 'km' : this.distance + 'm';
-		return output;
+	showDistance(isZero) {
+		if(isZero)
+			this.distance = 0;
+		this.showedDistance = this.distance >= 1000 ? (this.distance / 1000).toFixed(3) + 'km' : this.distance + 'm';
 	}
 
 	pad(num) {
@@ -41,6 +43,7 @@ export class Main {
 
 		this.geoWatcher.getNewPosition();
 		this.distance = this.geoWatcher.getDistance();
+		this.showDistance();
 		this.timer = setTimeout(() => {
 			this.currentTime++;
 			this.formatTime();
@@ -54,7 +57,6 @@ export class Main {
 		clearTimeout(this.timer);
 		this.geoWatcher.isWatching = false;
 		this.isStart = false;
-		this.distance = 0;	
 	}
 
 	resetTimer() {
@@ -62,9 +64,10 @@ export class Main {
 		clearTimeout(this.timer);
 		this.geoWatcher.isWatching = false;		
 		this.currentTime = 0;
-		this.distance = 0;
+		this.showDistance(true);
 		this.isStart = false;
 		this.formatTime();
+		this.geoWatcher = null;
 	}
 
 	toggleTimer() {
@@ -77,5 +80,6 @@ export class Main {
 
 	attached() {
 		this.formatTime();
+		this.showDistance();
 	}
 }
