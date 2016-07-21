@@ -18,8 +18,13 @@ export class GeoUtil {
 		this.pointB = coords;
 		console.log('B', this.pointB);
 		console.log('A', this.pointA);
+		if(this.pointA.latitude === this.pointB.latitude 
+			&& this.pointA.longitude === this.pointB.longitude)
+			return;
 		dist = Distances.getDistance(this.pointA, this.pointB);
-
+		dist *= 1000;
+		if(dist < 1)
+			return;
 		this.pointA = this.pointB;
 		console.log('distance: ' + dist, this.distance)
 		if(!isNaN(dist))
@@ -40,6 +45,6 @@ export class GeoUtil {
 	}
 
 	getDistance() {
-	 	return Number(this.distance * 1000).toFixed(0);
+	 	return this.distance.toFixed(0);
 	}
 }
