@@ -48,6 +48,11 @@ export class TimerUtil {
 		},1000);
 	}
 
+	finish() {
+		alert('finishzzzzzz')
+		this.resetTimer();
+	}
+
 	stopTimer() {
 		console.log('stopped');
 		clearTimeout(this.timer);

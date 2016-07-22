@@ -104,7 +104,7 @@ a:visited {
   .main-screen .time {
     font-size: 3rem;
   }
-  .main-screen button {
+  .main-screen div button {
     box-shadow: 5px 5px 6px -4px #000;
     outline: none;
     border: none;
@@ -113,6 +113,27 @@ a:visited {
     background: #fff;
     width: 60px;
     height: 60px;
+  }
+  .main-screen div .btn-small {
+    display: none;
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+    z-index: 100;
+    transition-duration: 0.3s;
+  }
+  .main-screen div .start-btn {
+    z-index: 1000;
+  }
+  .main-screen div .finish-btn {
+    transform: translateX(101%);
+  }
+  .main-screen div .reset-btn {
+    transform: translateX(-101%);
+  }
+  .main-screen div .btn-show {
+    display: inline-block;
+    animation: show-controls 0.3s forwards;
   }
   .results .table-results {
     color: #616161;
@@ -133,5 +154,41 @@ a:visited {
   .results .table-results .table-row div {
     width: 33%;
     padding: 1.4rem 0;
+  }
+}
+@-moz-keyframes show-controls {
+  from {
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+}
+@-webkit-keyframes show-controls {
+  from {
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+}
+@-o-keyframes show-controls {
+  from {
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+}
+@keyframes show-controls {
+  from {
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0%);
+    opacity: 1;
   }
 }

@@ -88,15 +88,32 @@ a, a:hover, a:active, a:visited
 			font-size 7rem
 		.time
 			font-size 3rem
-		button
-			box-shadow 5px 5px 6px -4px black
-			outline none
-			border none
-			border-radius 100%
-			font-size 1.5rem
-			background white
-			width 60px
-			height 60px
+		div
+			button
+				box-shadow 5px 5px 6px -4px black
+				outline none
+				border none
+				border-radius 100%
+				font-size 1.5rem
+				background white
+				width 60px
+				height 60px
+			.btn-small
+				display none
+				width 40px
+				height 40px
+				font-size 1rem
+				z-index 100
+				transition-duration .3s
+			.start-btn
+				z-index 1000
+			.finish-btn
+				transform translateX(101%)
+			.reset-btn
+				transform translateX(-101%)
+			.btn-show
+				display inline-block
+				animation show-controls .3s forwards
 		
 	.results
 		.table-results	
@@ -115,3 +132,14 @@ a, a:hover, a:active, a:visited
 				div
 					width 33%
 					padding 1.4rem 0
+
+
+@keyframes show-controls {
+	from {
+		opacity 0
+	}
+	to {	
+		transform translateX(0%)
+		opacity 1
+	}
+}

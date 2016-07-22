@@ -32,7 +32,7 @@ export class GeoUtil {
 			return;
 		dist = Distances.getDistance(this.pointA, this.pointB);
 		dist *= 1000;
-		if(dist < .9)
+		if(dist < 1)
 			return;
 		this.pointA = this.pointB;
 		console.log('distance: ' + dist, this.distance)
