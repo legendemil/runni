@@ -7,6 +7,15 @@ export class GeoUtil {
 	watchId = null;
 	isWatching = false;
 
+	distanceMeters = 0;
+	showedDistance = null;
+
+	showDistance(isZero) {
+		if(isZero)
+			this.distanceMeters = 0;
+		this.showedDistance = this.distanceMeters >= 1000 ? (this.distanceMeters / 1000).toFixed(3) + 'km' : this.distanceMeters + 'm';
+	}
+
 	success(pos) {
 		let coords = pos.coords;
 		let dist = 0;
@@ -23,7 +32,7 @@ export class GeoUtil {
 			return;
 		dist = Distances.getDistance(this.pointA, this.pointB);
 		dist *= 1000;
-		if(dist < 1)
+		if(dist < .9)
 			return;
 		this.pointA = this.pointB;
 		console.log('distance: ' + dist, this.distance)

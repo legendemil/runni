@@ -1,6 +1,17 @@
+import { inject } from 'aurelia-framework';
+import { TimerUtil } from './utils/timer.util.js';
+import { GeoUtil } from './utils/geo.util.js';
+
+
+@inject(TimerUtil, GeoUtil)
 export class App {
 	
 	showMenu = false;
+
+	constructor(timer, geo) {
+		this.timer = timer;
+		this.geo = geo;
+	}
 
 	configureRouter(config, router) {
 		config.title = 'Runni';
